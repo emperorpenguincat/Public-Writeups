@@ -39,7 +39,7 @@ After that, scroll all the way down until `TLS` is found.
 
 ![image](https://github.com/user-attachments/assets/d285144c-0cfc-4077-a297-9d1ae2deabd8)
 
-In the pre-share master key, the players can simply browse and use the `SSLKEYLOG` file that they downloaded earlier. After completing the steps, just click OK.
+In the `(Pre)-Master-Secret Log`, the players can simply browse and use the `SSLKEYLOG` file that they downloaded earlier. After completing the steps, just click OK.
 
 ![image](https://github.com/user-attachments/assets/5d16424e-34ad-4397-96c3-f00d33b8e7d3)
 
