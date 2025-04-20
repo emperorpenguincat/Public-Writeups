@@ -136,6 +136,8 @@ Then, we can replace the token in the localStorage with the forged token and att
 
 JWT Algorithm Confusion require us to retrieve the public key which will be used as the HMAC shared secret key after changing the algorithm to HS256 in the JWT header. Most of the time server will exposed their public keys in common path like `/jwks.json` , `/known-path/jwks.json`, & `/public.pem`. However, after several attempts on trying to retrieved the exposed public keys through known path has resulted in nothing. We can assume that the server was configured properly to ensure that the public key does not get exposed.
 
+<br>
+
 ![image](https://github.com/user-attachments/assets/3d0a6bc1-faa1-493b-bbd4-203219c14021)
 
 <br>
