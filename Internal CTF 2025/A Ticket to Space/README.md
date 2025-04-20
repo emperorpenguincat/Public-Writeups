@@ -11,6 +11,20 @@
 
 ## Set Up
 
+Ensure that docker is installed in your virtual machine before the set up.
+
+#### [1] Build challenge Docker image 
+`sudo docker build -t chall .`
+
+#### [2] Run the image inside a container
+`sudo docker run -d chall`
+
+#### [3] Get Docker container IP address
+`sudo docker inspect <container-id> | grep 'IP'`
+
+#### [4] Access challenge website
+Access to `http://docker-ip-address:3000`
+
 ## Solution
 <details>
 
