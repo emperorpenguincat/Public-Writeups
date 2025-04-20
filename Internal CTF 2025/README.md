@@ -6,9 +6,9 @@ An event conducted by the Asia Pacific University Forensic Security Research Cen
 
 <div align="center">
 
-| Category | Challenges |
-|----------|------------|
-|Web (Easy)| [Stargazers](https://github.com/emperorpenguincat/Challenges/tree/main/SSTI)    |
-|Web (Medium)| [A Ticket to Space](https://github.com/emperorpenguincat/Public-Writeups/tree/main/Internal%20CTF%202025/A%20Ticket%20to%20Space)|
+| Category | Diffculty | Challenges |
+|----------|-----------|------------|
+| Web | Easy | [Stargazers](https://github.com/emperorpenguincat/Public-Writeups/tree/main/Internal%20CTF%202025/Stargazers)|
+| Web | Medium | [A Ticket to Space](https://github.com/emperorpenguincat/Public-Writeups/tree/main/Internal%20CTF%202025/A%20Ticket%20to%20Space)|
 
 </div>
