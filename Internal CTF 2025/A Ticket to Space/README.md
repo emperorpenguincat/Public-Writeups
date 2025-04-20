@@ -164,7 +164,7 @@ Now we need to get the public keys from the result. The public keys will usually
 
 <br>
 
-Getting the public key is a crucial step for the JWT Algorithm Confusion attack to work. Now we can forge our own token by creating a simple python script. Firstly we need to read the `public.pem` file and strip unwanted contents before using it as the HMAC secret.
+Getting the public key is a crucial step for the JWT Algorithm Confusion attack to work. Now we can forge our own token by creating a simple python script. Firstly we need to read the `public.pem` file to strip unwanted contents and covert to proper format before using it as the HMAC secret.
 
 ```python
 with open(os.path.join(os.path.dirname(__file__), 'public.pem'), 'r') as f:
