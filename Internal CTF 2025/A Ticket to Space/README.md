@@ -138,7 +138,7 @@ JWT Algorithm Confusion require us to retrieve the public key which will be used
 
 <br>
 
-Fortunately, there is an interesting method that can be used to retrieved the public keys if they are not exposed. A great tool developed by nu11secur1ty called [rsa_sign2n](https://github.com/nu11secur1ty/rsa_sign2n/blob/main/README.md) will derived public keys from existing tokens. We need to generated two tokens from the website for the tool to work.
+Fortunately, there is an interesting method that can be used to retrieved the public keys if they are not exposed. A great tool developed by nu11secur1ty called [rsa_sign2n](https://github.com/nu11secur1ty/rsa_sign2n/blob/main/README.md) can derived the public keys from existing tokens which we need to generated two tokens from the website for the tool to work.
 
 First Token: `eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdXJjaGFzZVBlcm0iOmZhbHNlLCJleHAiOjE3NDUxNzc2MzgsImlhdCI6MTc0NTE3NDAzOH0.iTWhbTm90rdNtA10xmwiV0I7S-eD1veCkDgCqbBt5wer6ds1sHJDl5tNZQZcnwfBtYiaMhNG-DqTB7VfTbaYTWJRHNxr6n_UJmXB_XjWBtNkIpGwPHwkJBmebngg-VZuXOvo2NP8wv0TpdF3GRLQENonGFY37l5cYmATtKsNBUlTrvKwp0KLrLpIS8-uufXXkxha5SL6sDmj5z9Mmhwv-At7O0C4ZE8cijfhj48KXWcHk1fQFl1lYVPovqygh3tkJOW2avUO0HehDs6o5YX833aFhOox9kya7DbpPBcW9UEh62_EfFk2L1G1xgZg04vHcTzFYxrX62oaz804FyZHRQ`
 
@@ -146,6 +146,6 @@ After deleting the token and refresh the page will generate another new token.
 
 Second Token: `eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdXJjaGFzZVBlcm0iOmZhbHNlLCJleHAiOjE3NDUxNzc2NTcsImlhdCI6MTc0NTE3NDA1N30.GMSDZvtmFlYGT8dcpk04rHWx6PDM-4DAuzzSXtuvRLfp9-IlVxuwe2MsjzjBGIFU9NLrBhxMkruqm2HcNrDHVkz-NUVDKWmLRED0_VJ9FGwIEARkkZqS-dHXA56x0QxGpUVWSq43_1u_qFi8ZczYAr_O9iXEDmTnBFl2Xu_zLZ0OYOlhKSEnCiGbWUlju2UH-nflysT_I7ENrUTFp_wixpPNYVxfZWLk16ixarISbOixvMdL5rYbYZmPEwos5Lz0-ix4gxmPcY1J2luLRhhQPdkaqKBwMzpSQjwex6N63gHt7kGk_kVfHr1B0L-CIYPazNBn9W5qQcUUVTbvVbzBlg`
 
-Now we have two tokens ready
+Now we have two tokens ready and we can use the tool after successful installation. 
 
 </details>
