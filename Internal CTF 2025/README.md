@@ -9,6 +9,7 @@ An event conducted by the Asia Pacific University Forensic Security Research Cen
 | Category | Diffculty | Challenges |
 |----------|-----------|------------|
 | Web | Easy | [Stargazers](https://github.com/emperorpenguincat/Public-Writeups/tree/main/Internal%20CTF%202025/Stargazers)|
+| Web | Easy | [Kethal's Transmitter](https://github.com/emperorpenguincat/Public-Writeups/tree/main/Internal%20CTF%202025/Kethal's%20Transmitter)|
 | Web | Medium | [A Ticket to Space](https://github.com/emperorpenguincat/Public-Writeups/tree/main/Internal%20CTF%202025/A%20Ticket%20to%20Space)|
 
 </div>
