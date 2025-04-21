@@ -1,6 +1,6 @@
 # Stargazers
 
-#### Categoyry: Web Exploitation
+#### Category: Web Exploitation
 
 #### Difficulty: Easy
 
