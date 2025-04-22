@@ -6,7 +6,7 @@ An event conducted by the Asia Pacific University Forensic Security Research Cen
 
 <div align="center">
 
-| Category | Diffculty | Challenges |
+| Category | Difficulty | Challenges |
 |----------|-----------|------------|
 | Misc | Easy | [Welcome to ICTF25](https://github.com/emperorpenguincat/Public-Writeups/tree/main/Internal%20CTF%202025/Welcome%20to%20ICTF25)|
 | Web | Easy | [Stargazers](https://github.com/emperorpenguincat/Public-Writeups/tree/main/Internal%20CTF%202025/Stargazers)|
