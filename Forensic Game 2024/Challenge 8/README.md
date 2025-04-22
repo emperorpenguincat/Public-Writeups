@@ -10,7 +10,7 @@
 
 
 ## Solution
-
+<details>
 Firstly, the challenge provided one pcap file called `capturedpacket.pcapng` so players should know that this challenge involve with network analysis. Tools like Wireshark is very useful for network analysis and they are pre-installed in Kali Linux. This challenge also requires the player to travel to another location which is CyberRange@APU and there's a file called `chat.txt` that contains a chat log of the three masterminds which stored inside the PCs. When the players open the pcap file, it seems that the traffic is encrypted so we need to find a way to decrypt the messages.
 
 ![image](https://github.com/user-attachments/assets/c6c23616-ba16-46b3-88b9-608fa8efed28)
@@ -72,3 +72,4 @@ Finally, the players should open up the image from the folder that they download
 ![image](https://github.com/user-attachments/assets/182cb031-df9c-47c3-94e4-9f448cc8cb11)
 
 ### Flag:FG24{Southern_Riverbank}
+</details>
