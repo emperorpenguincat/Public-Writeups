@@ -29,7 +29,7 @@ Access to `http://localhost:8080`
 ## Solution
 <details>
 
-The web challenge needs the user to gather seven stars in order to earn the flag, which they may achieve by just clicking them.  However, there is a catch: if the score hits 6, the star will avoid the cursor and prevent the user from clicking it. We should examine the frontend source code to gather additional insights.
+The web challenge needs the user to gather seven stars in order to earn the flag, which they may achieve by just clicking them.  However, there is a catch: if the score hits 6, the star will avoid the cursor and prevent the user from clicking it. We should examine the client side source code to gather additional insights.
 
 ![image](https://github.com/user-attachments/assets/90a05488-0ca4-499a-bd36-6bb68825f8f4)
 
