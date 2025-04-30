@@ -77,7 +77,7 @@ Removing the 'unclickable' class using DevTools.
 `document.querySelector('.unclickable').classList.remove('unclickable');`
 
 ### Method 2
-Sending the score data as JSON directly to server side.
+Sending the score as JSON directly to server side.
 
 `curl -X POST http://localhost:5000/victory -H 'Content-Type: application/json' -d '{"score":7}'`
 
