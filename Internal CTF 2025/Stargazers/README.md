@@ -23,11 +23,8 @@ Ensure to download the challenge file `Challenge.zip`
 #### [3] Run the image inside a container
 `sudo docker run -d chall`
 
-#### [4] Get Docker container IP address
-`sudo docker inspect <container-id> | grep 'IP'`
-
-#### [5] Access challenge website
-Access to `http://docker-ip-address:8080`
+#### [4] Access challenge website
+Access to `http://localhost:8080`
 
 ## Solution
 <details>
