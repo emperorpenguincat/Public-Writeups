@@ -43,6 +43,40 @@ if (score === 6) {
     object.style.backgroundImage = `url('/static/star.png')`; 
     moveAwayFromCursor(object);
 }
+
+function moveAwayFromCursor(object) {
+    const moveInterval = setInterval(() => {
+        const rect = object.getBoundingClientRect();
+
+        const cursorX = window.cursorX || 0;
+        const cursorY = window.cursorY || 0;
+
+        const objectX = rect.left + rect.width / 2;
+        const objectY = rect.top + rect.height / 2;
+
+        const dx = objectX - cursorX;
+        const dy = objectY - cursorY;
+
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 150) {
+            const angle = Math.atan2(dy, dx);
+            const moveDistance = 15;
+
+            let newLeft = rect.left + Math.cos(angle) * moveDistance;
+            let newTop = rect.top + Math.sin(angle) * moveDistance;
+
+            if (newLeft < 0 || newLeft > window.innerWidth - rect.width ||
+                newTop < 0 || newTop > window.innerHeight - rect.height) {
+                newLeft = Math.random() * (window.innerWidth - rect.width);
+                newTop = Math.random() * (window.innerHeight - rect.height);
+            }
+
+            object.style.left = `${newLeft}px`;
+            object.style.top = `${newTop}px`;
+        }
+    }, 30);
+}
 ```
 
 Server accepts JSON data as score directly from the client side without proper validation.
