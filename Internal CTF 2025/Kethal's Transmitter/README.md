@@ -25,8 +25,11 @@ Ensure to download the challenge file `Challenge.zip`
 #### [3] Run the image inside a container
 `sudo docker run -d chall`
 
-#### [4] Access challenge website
-Access to `http://localhost:5000`
+#### [4] Get Docker container IP address
+`sudo docker inspect <container-id> | grep 'IP'`
+
+#### [5] Access challenge website
+Access to `http://docker_ip:5000`
 
 ## Solution
 <details>
