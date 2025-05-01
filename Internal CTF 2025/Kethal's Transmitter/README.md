@@ -158,7 +158,7 @@ Based on the source code, the vulnerability of the website seems like [Latex Inj
 \closein\file
 ```
 
-To bypass a blacklist try to replace one character with it's unicode hex value. Can refer to [PayloadsAllTheThins](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/LaTeX%20Injection/README.md)
+To bypass a blacklist try to replace one character with it's unicode hex value. Can refer to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/LaTeX%20Injection/README.md)
 
 ![image](https://github.com/user-attachments/assets/cd88bbcf-7b6f-4586-b7d9-b8bb96f9c018)
 
