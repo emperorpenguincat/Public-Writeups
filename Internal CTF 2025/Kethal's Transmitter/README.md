@@ -29,7 +29,7 @@ Ensure to download the challenge file `Challenge.zip`
 `sudo docker inspect <container-id> | grep 'IP'`
 
 #### [5] Access challenge website
-Access to `http://docker_ip:5000`
+Access to `http://docker-ip-address:5000`
 
 ## Solution
 <details>
