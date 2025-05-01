@@ -35,4 +35,11 @@ Access to `http://docker-ip-address:8080`
 ## Solution
 <details>
 
+Since this is just a sanity check and a welcome flag challenge, nothing crazy is required to solve the challenge. All we have to do is defeat the 7 bosses called `Alcyone, Asterope, Celaeno, Electra, Maia, Merope, and Taygete` which is needed to win the game and we will successfully obtain the flag. (**I created this game because our theme is 8-bit space :P. I apologize to those who struggle to win the game. I have already attempted to reduce the difficulty and to those who won, I hope you had fun!**)
+
+![image](https://github.com/user-attachments/assets/08b8f7d2-52cb-4e65-9d59-4ee1a2e88056)
+
+### Flag
+> ICTF25{w3lc0me_70_ICTF25_3527d3288d718eb52f97ab20cacba9cd}
+
 </details>
