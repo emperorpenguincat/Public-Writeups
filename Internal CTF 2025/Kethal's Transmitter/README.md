@@ -12,6 +12,22 @@
 
 ![image](https://github.com/user-attachments/assets/6c47c66e-d94e-4210-9181-d0e173553ad6)
 
+## Set Up & Installation
+
+Ensure that docker is installed in your virtual machine before the set up process.
+
+#### [1] Download challenge files
+Ensure to download the challenge file `Challenge.zip`
+
+#### [2] Build challenge Docker image 
+`sudo docker build -t chall .`
+
+#### [3] Run the image inside a container
+`sudo docker run -d chall`
+
+#### [4] Access challenge website
+Access to `http://localhost:5000`
+
 ## Solution
 <details>
 
