@@ -42,6 +42,6 @@ Since this is just a sanity check and a welcome flag challenge, nothing crazy is
 ### Flag
 > ICTF25{w3lc0me_70_ICTF25_3527d3288d718eb52f97ab20cacba9cd}
 
-Note: **I created this game because our theme is 8-bit space :P. I apologize to those who struggle to win the game. I have already attempted to reduce the difficulty and to those who won, I hope you had fun!**
+***Note: I created this game because our theme is 8-bit space :P. I apologize to those who struggle to win the game. I have already attempted to reduce the difficulty and to those who won, I hope you had fun!***
 
 </details>
