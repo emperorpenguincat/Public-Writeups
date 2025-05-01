@@ -79,7 +79,7 @@ function moveAwayFromCursor(object) {
 }
 ```
 
-Server accepts JSON data as score directly from the client side without proper validation.
+Server accepts JSON data type as score directly from the client side to endpoint `/victory` without proper validation.
 
 ```javascript
 fetch('/victory', {
