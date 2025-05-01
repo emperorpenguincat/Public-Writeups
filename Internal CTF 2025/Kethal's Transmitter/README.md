@@ -166,7 +166,7 @@ It seems that the website detected some forbidden words and disallow us to print
 
 ![image](https://github.com/user-attachments/assets/b1fa3b60-e075-4aca-8c5b-aa82e99c9af6)
 
-Upon doing some research, there is a simple approach to bypass blacklist strings by trying to replace one character with it's unicode hex value. Can refer to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/LaTeX%20Injection/README.md).
+Upon doing some research, there is a simple approach to bypass blacklisted strings by trying to replace one character with it's unicode hex value. Can refer to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/LaTeX%20Injection/README.md).
 
 ![image](https://github.com/user-attachments/assets/cd88bbcf-7b6f-4586-b7d9-b8bb96f9c018)
 
