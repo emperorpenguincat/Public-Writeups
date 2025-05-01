@@ -34,6 +34,8 @@ Access to `http://docker-ip-address:5000`
 ## Solution
 <details>
 
+The web challenge included Flask source code and a webpage with a text input. We may start by just testing it using the string "Hello World" to see how it responds. It appears that the result just displays whatever text we have entered, but this does not lead to anything. Therefore, we investigate the source code to determine what the website is doing.
+
 ![image](https://github.com/user-attachments/assets/c95bf775-d98c-40c8-8eb8-8329154a928e)
 
 ### Source Code (Python)
@@ -148,7 +150,9 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
 ```
 
-Based on the source code, the vulnerability of the website seems like [Latex Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/LaTeX%20Injection)
+According to the source code, the website will POST the LaTeX code to route `/render`, which will then be compiled into a PDF and converted to PNG format. The website additionally generates a `TEMP_FOLDER` with a unique ID for storing the rendered code. The `FLAG` is then stored in each job directory as `flag.txt`, with a blacklisting function to prohibit the user from sending certain LaTeX commands or directly accessing the content of the file `flag.txt`. Based on our observations, we can conclude that this website contains [Latex Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/LaTeX%20Injection) vulnerability.
+
+We can start by using a simple Latex Injection payload to read a specific file. For this scenario, we are going to read the contents of `/etc/passwd` to test whether does this payload works.
 
 ```
 \newread\file
@@ -158,22 +162,19 @@ Based on the source code, the vulnerability of the website seems like [Latex Inj
 \closein\file
 ```
 
-To bypass a blacklist try to replace one character with it's unicode hex value. Can refer to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/LaTeX%20Injection/README.md).
-
-![image](https://github.com/user-attachments/assets/cd88bbcf-7b6f-4586-b7d9-b8bb96f9c018)
-
-Blacklisted strings:
-`'flag', '.txt', 'newread', 'openin', 'read', 'file', 'line', 'closein', 'verbatim', 'usepackage', 'verbatiminput', 'lstinputlisting'`
-
-Encode the characters with hex to bypass blacklisted words.
+It seems that the website detected some forbidden words and disallow us to print out the contents of the file that we specified. This is because the payload contains blacklisted strings such as `'newread', 'openin', 'read', 'file', 'line', 'closein', 'verbatim', 'usepackage', 'verbatiminput', 'lstinputlisting'`.
 
 ![image](https://github.com/user-attachments/assets/b1fa3b60-e075-4aca-8c5b-aa82e99c9af6)
 
-Therefore, we can try use the same payload again and encode some of the characters with its hex value to bypass the blacklisting function.
+Upon doing some research, there is a simple approach to bypass blacklist strings by trying to replace one character with it's unicode hex value. Can refer to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/LaTeX%20Injection/README.md).
+
+![image](https://github.com/user-attachments/assets/cd88bbcf-7b6f-4586-b7d9-b8bb96f9c018)
+
+Encoding the characters to hex should allow us to bypass blacklisted strings. Therefore, we can try use the same payload again and encode some of the characters with its hex value.
 
 ![image](https://github.com/user-attachments/assets/1915bb24-8f06-49a1-83b3-e9c322fc7e95)
 
-It seems like it works so we can encode the rest of the characters like "flag.txt" to read the content of the file. The following payload should look like this:
+It seems like the payload works so we can encode the rest of the characters like `flag.txt` to read the content of the file since the filename was also blacklisted. The following payload should look like this:
 
 ```
 \newr^^65ad\fil^^65
@@ -183,7 +184,7 @@ It seems like it works so we can encode the rest of the characters like "flag.tx
 \close^^69n\fil^^65
 ```
 
-Using the payload and submit it into the input will reveal the contents inside the file "flag.txt". Thus, the flag is successfully obtained.
+Using the payload and submitting it into the input will disclose the contents of the file `flag.txt`. Thus, the flag was successfully obtained.
 
 ![image](https://github.com/user-attachments/assets/82d48f15-4a35-4436-b332-82c7d361b9da)
 
