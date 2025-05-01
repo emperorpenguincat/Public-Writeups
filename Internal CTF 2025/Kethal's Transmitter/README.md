@@ -184,7 +184,7 @@ It seems like the payload works so we can encode the rest of the characters like
 \close^^69n\fil^^65
 ```
 
-Using the payload and submitting it into the input will disclose the contents of the file `flag.txt`. Thus, the flag was successfully obtained.
+Using the payload and submitting it into the text input will disclose the contents of the file `flag.txt`. Thus, the flag was successfully obtained.
 
 ![image](https://github.com/user-attachments/assets/82d48f15-4a35-4436-b332-82c7d361b9da)
 
