@@ -133,7 +133,7 @@ The php script's output indicated an error regarding the null argument because w
 
 ![image](https://github.com/user-attachments/assets/d31e6ea9-1e77-40e4-878a-14a1b37dbbb1)
 
-We may now use UNIX commands in the `?cmd` argument and directory listing command such as `ls` to display the files on the server.  Although the challenge stated that the flag is stored in `/flag.txt`, employing this approach may provide greater flexibility and efficiency for future challenges in which the filename or path is not specified.
+We may now use UNIX commands in the `?cmd` parameter and directory listing command such as `ls` to display the files on the server.  Although the challenge stated that the flag is stored in `/flag.txt`, employing this approach may provide greater flexibility and efficiency for future challenges in which the filename or path is not specified.
 
 ![image](https://github.com/user-attachments/assets/a08d6ed9-c5e4-4217-8a89-6f9b90c4068f)
 
