@@ -22,7 +22,7 @@ The web-based challenge gave us a PHP source code and a webpage that had similar
 
 ![image](https://github.com/user-attachments/assets/7a2594fa-fe26-4256-9c65-0fc537586de7)
 
-As we can see, a randomly generated filename containing the query response is kept in the '/uploads/' directory, and the website allows us to specify any file type extension we want to.
+As we can see, a randomly generated filename containing the query response is kept in the `/uploads/` directory, and the website allows us to specify any file type extension we want to.
 
 ![image](https://github.com/user-attachments/assets/4003346f-4e69-40c1-afbf-4b83d0678f85)
 
