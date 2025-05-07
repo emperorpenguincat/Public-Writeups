@@ -113,7 +113,7 @@ Before submitting the request, we need to configure the listener so that when th
 
 #### Fill up the host and port provided by ngrok
 
-We can send the request after completing the form, which looks like this. Ensure the file type is a `.php` so that the php webshell which will be injected later on can be recognized.
+We can send the request after completing the form, which looks like this. Ensure the file type is a `.php` so that the php script which will be injected later on can be recognized.
 
 ![image](https://github.com/user-attachments/assets/965a1089-0260-4c5d-b0c5-08125f58bb59)
 
