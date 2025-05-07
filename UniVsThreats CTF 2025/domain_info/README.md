@@ -113,7 +113,7 @@ Before submitting the request, we need to configure the listener so that when th
 
 #### Fill up the host and port provided by ngrok
 
-We can send the request after completing the form, which looks like this.
+We can send the request after completing the form, which looks like this. Ensure the file type is a `.php` so that the php webshell which will be injected later on can be recognized.
 
 ![image](https://github.com/user-attachments/assets/965a1089-0260-4c5d-b0c5-08125f58bb59)
 
@@ -121,15 +121,23 @@ When the request has been sent, the netcat connection will be established. We ca
 
 ![image](https://github.com/user-attachments/assets/231f603d-5fb5-4bbb-8fa6-a1b2c6e1341d)
 
-Then, we can inject a simple webshell such as `<?php system($_GET['cmd'];)?>`.
+Then, we can inject a simple PHP webshell: `<?php system($_GET['cmd'];)?>`. The webshell will allow us to use UNIX commands on the cmd parameter.
 
 ![image](https://github.com/user-attachments/assets/42a50d9d-df3e-4a2b-8ed9-cca4358eb3a0)
 
+After successfully injected the webshell, we can access the file to view the output.
+
 ![image](https://github.com/user-attachments/assets/7d7d94fc-3833-4aec-a8c4-c692e2a4a324)
+
+The php script's output indicated an error regarding the null argument because we did not specify any commands in the `?cmd` parameter.  This indicates that the command was successfully injected.
 
 ![image](https://github.com/user-attachments/assets/d31e6ea9-1e77-40e4-878a-14a1b37dbbb1)
 
+We may now use UNIX commands in the `?cmd` argument and directory listing command such as `ls` to display the files on the server.  Although the challenge stated that the flag is stored in `/flag.txt`, employing this approach may provide greater flexibility and efficiency for future challenges in which the filename is not specified.
+
 ![image](https://github.com/user-attachments/assets/a08d6ed9-c5e4-4217-8a89-6f9b90c4068f)
+
+Then, for the next steps, we can simply access the `/flag.txt` file to acquire the flag for the challenge.
 
 ![image](https://github.com/user-attachments/assets/bcf6fbc3-7431-45d7-a3c1-dca89b564344)
 
