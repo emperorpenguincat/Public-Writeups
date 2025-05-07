@@ -99,7 +99,7 @@ Based on the provided source code, we can observed that it prevents simple comma
 
 #### Set up a ngrok TCP tunnel
 
-*Note: To create TCP tunneling using ngrok, it is required to fill credit card info into your account but don't worry. It is still free.*
+*Note: To create TCP tunneling using ngrok, it is required to fill credit card info on your account but don't worry. It won't charged you.*
 
 `ngrok tcp 1337`
 
@@ -129,7 +129,7 @@ After successfully injected the webshell, we can access the file to view the out
 
 ![image](https://github.com/user-attachments/assets/7d7d94fc-3833-4aec-a8c4-c692e2a4a324)
 
-The php script's output indicated an error regarding the null argument because we did not specify any commands in the `?cmd` parameter.  This indicates that the command was successfully injected.
+The php script's output indicated an error regarding the null argument because we did not specify any commands in the `?cmd` parameter.  This shows that the command was successfully injected.
 
 ![image](https://github.com/user-attachments/assets/d31e6ea9-1e77-40e4-878a-14a1b37dbbb1)
 
