@@ -4,13 +4,15 @@
 
 #### Difficulty: Medium
 
+#### Challenge Files: [Download](challenge.zip)
+
 ## Description
 
 Recently, our AI Drone Tech Support behaved strangely. During investigation, we discovered two odd files on the culprit device are identical to a suspicious file from our server. We suspect something malicious is hidden inside the image itself, but we couldn’t see it directly. Can you figure out how to uncover what’s within the image that can only be seen by AI? 
 
 ### Preview (flag.png)
 
-![alt text](image.png)
+![alt text](assets/image.png)
 
 ## Solution
 <details>
@@ -33,13 +35,13 @@ print(type(model))
 
 The script should print the keys of the dictionaries from the model and get result like this:
 
-![alt text](image-2.png)
+![alt text](assets/image-2.png)
 
 From here, we should be able to identify the type of CNN used was ResNet-18. But how is it possible to know is ResNet and also not 34, 50, 101, 152? Well, the keys are a big giveaway.
 
 The ResNet-18 architecture goes like this:
 
-![alt text](image-3.png)
+![alt text](assets/image-3.png)
 
 **Initial layer**: 1 convolutional layer.
 
@@ -215,7 +217,7 @@ if __name__ == "__main__":
 
 After executing the script, we should be able to obtain the flag for this challenge.
 
-![alt text](image-1.png)
+![alt text](assets/image-1.png)
 
 ### Flag
 > SIBER25{l3arn1ng_m4ch1n3_l3arn1ng}
