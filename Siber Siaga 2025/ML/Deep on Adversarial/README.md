@@ -2,7 +2,7 @@
 
 #### Category: AI / ML
 
-#### Difficulty: Easy
+#### Difficulty: Medium
 
 ## Description
 
